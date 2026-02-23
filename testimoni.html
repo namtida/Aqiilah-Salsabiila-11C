@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head> 
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Usaha Buku</title>
+    <link rel="stylesheet" href="style.css" /> 
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="produk.html">Produk</a>
+            <a href="bedah-buku.html">Bedah Buku</a>
+            <a href="testimoni.html">Testimoni</a>
+            <a href="tampil-testimoni.html">Testimoni Pembeli</a>
+        </nav>
+        <h1>Namtida Heritage Library</h1>
+    </header>
+
+    <main class="formulir">
+        <h2>Berikan Testimoni Anda</h2>
+        <form id="formTestimoni">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required placeholder="Nama Lengkap">
+            
+            <label for="asal">Asal Sekolah / Instansi / Komunitas:</label>
+            <input type="text" id="asal" name="asal">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="email@example.com">
+
+            <label for="judul_buku">Judul Buku yang dibeli:</label>
+            <input type="text" id="judul_buku" name="judul_buku">
+
+            <label for="rate">Rate (1-5):</label>
+            <input type="number" id="rate" name="rate" min="1" max="5" required>
+            
+            <label for="pesan">Testimoni Anda:</label>
+            <textarea id="pesan" name="pesan" required placeholder="Tulis pengalaman Anda..." rows="5"></textarea>
+
+            <button type="submit">Kirim Testimoni</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Namtida Heritage Library</p>
+    </footer>
+
+    <script>
+        document.getElementById('formTestimoni').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Ambil nilai dari form
+            const nama = document.getElementById('nama').value;
+            const asal = document.getElementById('asal').value;
+            const email = document.getElementById('email').value;
+            const judul = document.getElementById('judul_buku').value;
+            const rate = document.getElementById('rate').value;
+            const pesan = document.getElementById('pesan').value;
+
+            // Buat object testimoni
+            const dataBaru = { nama, asal, email, judul, rate, pesan };
+
+            // Ambil list dari localStorage
+            const testimoniList = JSON.parse(localStorage.getItem('testimoniList')) || [];
+
+            // Tambahkan testimoni baru
+            testimoniList.push(dataBaru);
+
+            // Simpan kembali ke localStorage
+            localStorage.setItem('testimoniList', JSON.stringify(testimoniList));
+
+            // Arahkan ke halaman konfirmasi (atau tampilkan alert)
+            alert('Testimoni berhasil dikirim!');
+            // window.location.href = 'proses-testimoni.html';
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html> 
