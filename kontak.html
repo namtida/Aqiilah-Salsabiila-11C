@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head> 
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak - Namtida Heritage Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===================== GLOBAL ===================== */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: 'Roboto', sans-serif; background:#e0f0ff; color:#2c3e50; line-height:1.7; animation:fadeInBody 1s ease-in-out;}
+h1,h2,h3 {font-family:'Playfair Display', serif;}
+a {text-decoration:none; color:#f0f8ff; transition:0.3s;}
+a:hover {color:#ffffff;}
+
+/* ===================== ANIMATIONS ===================== */
+@keyframes fadeInBody {from {opacity:0;} to {opacity:1;}}
+@keyframes slideUp {from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);}}
+
+/* ===================== HEADER ===================== */
+header {
+    background: linear-gradient(90deg, #6495ed, #a3c9ff);
+    color:#f0f8ff;
+    padding:25px 0;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    position:sticky; top:0; z-index:1000;
+    animation:slideUp 0.7s ease-out;
+}
+header h1 { font-size:2.8rem; margin-top:10px; }
+
+/* ===================== NAVIGATION ===================== */
+nav { margin-bottom:10px; }
+nav a { margin:0 12px; font-weight:500; padding:4px 8px; border-radius:6px; display:inline-block; }
+nav a:hover { background-color:rgba(255,255,255,0.2); }
+
+/* ===================== MAIN & SECTIONS ===================== */
+main { width:90%; max-width:1000px; margin:40px auto; animation:slideUp 1s ease-out; }
+
+.alamat, .form-kontak {
+    background: linear-gradient(135deg,#d0ebff,#e0f0ff);
+    padding:30px;
+    margin-bottom:30px;
+    border-radius:16px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+.alamat h2, .form-kontak h2 { color:#2c3e50; margin-bottom:15px; }
+.alamat p { margin-bottom:10px; }
+
+/* ===================== MAP ===================== */
+.alamat iframe { border-radius:12px; margin-top:15px; transition: transform 0.3s ease; }
+.alamat iframe:hover { transform: scale(1.02); }
+
+/* ===================== FORM ===================== */
+form { display:flex; flex-direction:column; }
+form label { margin-top:10px; font-weight:bold; }
+form input, form textarea {
+    margin-top:5px; padding:12px; border-radius:8px; border:1px solid #6495ed; font-size:14px;
+    transition:0.3s;
+}
+form input:focus, form textarea:focus { outline:none; border-color:#4173d1; box-shadow:0 0 8px rgba(65,115,209,0.3); }
+
+button {
+    margin-top:15px; padding:12px; background:#6495ed; color:white; border:none; border-radius:8px;
+    cursor:pointer; font-weight:bold; transition:0.3s;
+}
+button:hover {
+    background:#4173d1; transform:scale(1.05); box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+#notifikasi { margin-top:15px; color:#4173d1; font-weight:bold; animation:slideUp 0.5s ease; }
+
+/* ===================== FOOTER ===================== */
+footer {
+    background: linear-gradient(90deg, #6495ed, #a3c9ff);
+    color:#f0f8ff;
+    text-align:center;
+    padding:25px;
+    box-shadow:0 -4px 12px rgba(0,0,0,0.1);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:768px){ nav a{ display:block; margin:8px 0; } }
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="produk.html">Produk</a>
+        <a href="bedah-buku.html">Bedah Buku</a>
+        <a href="testimoni.html">Testimoni</a>
+        <a href="tampil-testimoni.html">Testimoni Pembeli</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="event.html">Event</a>
+    </nav>
+    <h1>Namtida Heritage Library</h1>
+</header>
+
+<main>
+    <section class="alamat">
+        <h2>Alamat Toko Kami</h2>
+        <p><strong>Alamat:</strong> Jl. Slamet Riyadi No.101, Laweyan, Surakarta</p>
+        <p><strong>Email:</strong> namtida.library@gmail.com</p>
+        <p><strong>Telepon:</strong> 0812-3456-7890</p>
+        <p><strong>Jam Operasional:</strong> Senin - Sabtu, 09.00 - 17.00 WIB</p>
+
+        <h3>Lokasi Kami</h3>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18..."
+            width="100%" 
+            height="300" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </section>
+
+    <section class="form-kontak">
+        <h2>Formulir Kontak</h2>
+        <form onsubmit="return kirimPesan()">
+            <label>Nama Lengkap:</label>
+            <input type="text" id="nama" required>
+
+            <label>Email:</label>
+            <input type="email" id="email" required>
+
+            <label>Pesan:</label>
+            <textarea id="pesan" rows="5" required></textarea>
+
+            <button type="submit">Kirim Pesan</button>
+        </form>
+        <p id="notifikasi"></p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Namtida Heritage Library. All Rights Reserved.</p>
+</footer>
+
+<script>
+function kirimPesan() {
+    document.getElementById("notifikasi").innerHTML = "✅ Pesan berhasil dikirim! Terima kasih sudah menghubungi kami.";
+    return false;
+}
+</script>
+</body>
+</html>

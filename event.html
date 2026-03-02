@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Namtida Heritage Library - Koleksi & Event</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===================== GLOBAL ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #e0f0ff;
+    color: #2c3e50;
+    line-height: 1.7;
+    animation: fadeInBody 1s ease-in-out;
+}
+h1,h2,h3 { font-family: 'Playfair Display', serif; }
+
+/* ===================== ANIMATIONS ===================== */
+@keyframes fadeInBody { from {opacity: 0;} to {opacity:1;} }
+@keyframes slideUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+@keyframes bounceHover { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-6px);} }
+
+/* ===================== HEADER ===================== */
+header {
+    background: linear-gradient(90deg, #6495ed, #a3c9ff);
+    color: #f0f8ff;
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideUp 0.7s ease-out;
+}
+header h1 {
+    font-size: 2.8rem;
+}
+
+/* ===================== NAVIGATION ===================== */
+nav { margin-bottom: 10px; }
+nav a {
+    color: #f0f8ff;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+nav a:hover { background-color: rgba(255,255,255,0.2); }
+
+/* ===================== EVENT ===================== */
+.event {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 35px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #d0ebff, #e0f0ff);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-left: 6px solid #6495ed;
+    animation: slideUp 0.8s ease-out;
+}
+.event h2 { margin-bottom: 15px; }
+.event p { margin-bottom: 15px; }
+.event p.quote {
+    font-style: italic;
+    color: #4173d1;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* ===================== KOLEKSI BUKU ===================== */
+.koleksi { width: 90%; max-width: 1200px; margin: 50px auto; }
+.koleksi h2 { text-align:center; margin-bottom:40px; color:#2c3e50; }
+
+.grid-buku {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.buku-card {
+    background: linear-gradient(145deg, #d0ebff, #f0f8ff);
+    border-radius: 16px;
+    flex: 1 1 30%;
+    padding: 25px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    min-width: 280px;
+    animation: slideUp 1s ease-out;
+}
+.buku-card:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.2);
+}
+.buku-card h3 { margin-top: 20px; color: #2c3e50; }
+.buku-card p { font-size: 14px; margin-top: 10px; color: #2c3e50; }
+
+/* ===================== ICON BUKU ===================== */
+.buku-card::before {
+    content: "📚";
+    font-size: 36px;
+    position: absolute;
+    top: -18px;
+    left: 20px;
+    animation: bounceHover 2s infinite;
+}
+
+/* ===================== DISKON ===================== */
+.diskon {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto 80px auto;
+    padding: 35px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #cce7ff, #e0f0ff);
+    border-left: 6px solid #a3c9ff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    animation: slideUp 0.9s ease-out;
+}
+.diskon h2 { text-align:center; margin-bottom:20px; }
+.diskon ul { margin-left:25px; margin-bottom:15px; list-style-type: square; color: #2c3e50; }
+.diskon li { margin-bottom:12px; font-style: italic; }
+.diskon p { font-weight:bold; color:#4173d1; text-align:center; }
+
+/* ===================== FOOTER ===================== */
+footer {
+    background: linear-gradient(90deg, #6495ed, #a3c9ff);
+    color: #f0f8ff;
+    text-align: center;
+    padding: 25px;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width:1024px){ .grid-buku{ flex-direction:column; align-items:center; } }
+@media (max-width:768px){ nav a{ display:block; margin:8px 0; } }
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="produk.html">Produk</a>
+        <a href="bedah-buku.html">Bedah Buku</a>
+        <a href="testimoni.html">Testimoni</a>
+        <a href="tampil-testimoni.html">Testimoni Pembeli</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="event.html">Event</a>
+    </nav>
+    <h1>Namtida Heritage Library</h1>
+</header>
+
+<section class="event">
+    <h2>Pameran Koleksi Heritage 2026</h2>
+    <p><strong>Tanggal:</strong> 10 - 15 April 2026</p>
+    <p><strong>Lokasi:</strong> Aula Namtida Heritage Library</p>
+    <p>Masuki ruang literasi klasik kami. Nikmati koleksi <strong>novel legendaris</strong>, 
+       <strong>buku sejarah</strong>, <strong>buku pelajaran</strong>, <strong>komik</strong> dan <strong>self-improvement</strong>.</p>
+    <p class="quote">“Di setiap lembar buku, tersimpan kisah yang abadi dan hikmah yang tak lekang waktu.”</p>
+</section>
+
+<section class="koleksi">
+    <h2>Koleksi Unggulan</h2>
+    <div class="grid-buku">
+        <div class="buku-card">
+            <h3>Novel</h3>
+            <p>Kisah klasik dan epik legendaris. Petualangan emosi dan imajinasi yang tak terlupakan.</p>
+        </div>
+        <div class="buku-card">
+            <h3>Buku Sejarah</h3>
+            <p>Mengungkap peradaban masa lampau. Setiap halaman membuka jendela dunia yang telah lalu.</p>
+        </div>
+        <div class="buku-card">
+            <h3>Self-Improvement</h3>
+            <p>Karya inspiratif menuntun pembaca menapaki kehidupan dengan bijak dan pengembangan diri.</p>
+        </div>
+        <div class="buku-card">
+            <h3>Buku Pelajaran</h3>
+            <p>Kumpulan buku pelajaran untuk semua jenjang, mendukung belajar efektif dan kreatif.</p>
+        </div>
+        <div class="buku-card">
+            <h3>Komik</h3>
+            <p>Komik menarik dari berbagai genre, menghibur dan mendidik sekaligus, untuk semua usia.</p>
+        </div>
+    </div>
+</section>
+
+<section class="diskon">
+    <h2>Penawaran Spesial Bulan Ini</h2>
+    <ul>
+        <li>Diskon 20% untuk semua buku sejarah</li>
+        <li>Beli 2 gratis 1 untuk novel pilihan</li>
+        <li>Diskon 25% untuk koleksi self-improvement</li>
+        <li>Member setia: tambahan diskon 30% untuk seluruh koleksi eksklusif</li>
+    </ul>
+    <p>Promo berlaku sampai 30 April 2026. Segera kunjungi Namtida Heritage Library!</p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Namtida Heritage Library. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
