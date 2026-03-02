@@ -197,15 +197,237 @@ form button:hover {
     box-shadow: 0 10px 25px rgba(47, 74, 199, 0.35);
 }
 
-
 /* ================= ANIMATION ================= */
 @keyframes fadeInBody {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Body */
+body {
+    font-family: 'Georgia', serif;
+    color: #2c3e50;
+    background-color: #e0f0ff; /* biru pastel lembut */
+    line-height: 1.7;
+    animation: fadeInBody 1s ease-in-out;
+}
 
+/* Header */
+header {
+    background-color: rgba(100, 149, 237, 0.9); /* cornflower blue pastel */
+    color: #f0f8ff; /* putih lembut */
+    padding: 20px 0;
+    text-align: center;
+}
 
+nav {
+    margin-bottom: 10px;
+}
 
+nav a {
+    color: #f0f8ff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
+nav a:hover {
+    color: #b0cfff; /* biru pastel lebih terang */
+}
+
+h1 {
+    margin-top: 10px;
+}
+
+/* Event Section */
+.event {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: rgba(224, 240, 255, 0.95);
+    padding: 30px;
+    border-left: 6px solid #6495ed; /* cornflower blue */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.event h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.event p {
+    margin-bottom: 15px;
+}
+
+/* Koleksi Buku */
+.koleksi {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.koleksi h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.grid-buku {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: space-between;
+}
+
+.buku-card {
+    background-color: rgba(224, 240, 255, 0.95);
+    border-left: 6px solid #6495ed;
+    padding: 20px;
+    border-radius: 12px;
+    flex: 1 1 30%;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.buku-card .icon-buku {
+    font-size: 36px;
+    position: absolute;
+    top: -18px;
+    left: 20px;
+    color: #6495ed;
+}
+
+.buku-card h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.buku-card p {
+    font-size: 14px;
+}
+
+.buku-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* Diskon */
+.diskon {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto 80px auto;
+    background-color: rgba(225, 245, 255, 0.95);
+    padding: 30px;
+    border-left: 6px solid #a3c9ff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.diskon h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.diskon ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.diskon li {
+    margin-bottom: 10px;
+    font-style: italic;
+    font-size: 15px;
+}
+
+/* Form */
+.alamat,
+.form-kontak {
+    background: rgba(224, 240, 255, 0.95);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+form input,
+form textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #b0cfff;
+    font-size: 14px;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #6495ed;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #6495ed;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #4173d1;
+}
+
+#notifikasi {
+    margin-top: 15px;
+    color: #31708f;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(100, 149, 237, 0.9);
+    color: #f0f8ff;
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid-buku {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    nav a {
+        display: block;
+        margin: 8px 0;
+    }
+}
